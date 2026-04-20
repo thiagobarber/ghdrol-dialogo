@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GH DROL - Pré-Venda</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+html, body { height: 100%; margin: 0; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(255,224,9,0.15); }
+  50% { box-shadow: 0 0 35px rgba(255,224,9,0.35); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.card-anim { animation: fadeIn 0.8s ease-out, pulseGlow 3s ease-in-out infinite; }
+.emoji-float { animation: float 3s ease-in-out infinite; }
+.btn-primary-glow:hover { filter: brightness(1.15); transform: scale(1.03); }
+.btn-secondary-glow:hover { background: rgba(255,224,9,0.1); transform: scale(1.03); }
+</style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full overflow-auto" style="font-family: 'Outfit', sans-serif;">
+  <div id="app-wrapper" class="h-full w-full flex items-center justify-center p-4 relative" style="background: radial-gradient(ellipse at top, #1a1a0a 0%, #050505 70%);">
+   <!-- Close button --> <a id="close-btn" href="https://app.monetizze.com.br/r/BZP1880422" target="_blank" rel="noopener noreferrer" onclick="handleAction('closed')" class="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-xl transition-all duration-200 hover:scale-110 z-10 no-underline" style="color: #999; background: rgba(255,255,255,0.05);">✕</a>
+   <div class="card-anim w-full max-w-md rounded-2xl p-8 text-center relative" id="main-card" style="background: rgba(20,20,20,0.92); border: 1.5px solid rgba(255,224,9,0.2); backdrop-filter: blur(10px);">
+    <div class="emoji-float text-5xl mb-5" id="emoji-display">
+     💪
+    </div>
+    <h1 id="question" class="font-extrabold leading-tight mb-8" style="font-size: 28px; color: #FFE009;">Você quer ganhar massa muscular de verdade?</h1>
+    <div class="flex flex-col gap-3">
+     <a id="btn-primary" href="https://app.monetizze.com.br/r/BZP1880422" target="_blank" rel="noopener noreferrer" onclick="handleAction('primary_click')" class="btn-primary-glow block w-full py-4 rounded-xl font-bold text-lg tracking-wide transition-all duration-200 no-underline" style="background: linear-gradient(135deg, #FFE009, #ccb307); color: #050505;"> SIM, EU QUERO! 🔥 </a> <a id="btn-secondary" href="https://app.monetizze.com.br/r/BZP1880422" target="_blank" rel="noopener noreferrer" onclick="handleAction('secondary_click')" class="btn-secondary-glow block w-full py-3.5 rounded-xl font-semibold transition-all duration-200 no-underline" style="border: 1.5px solid rgba(255,224,9,0.4); color: #FFE009; background: transparent;"> Quero saber mais → </a>
+    </div>
+    <p class="mt-6 text-xs" style="color: #555;">GH DROL · Oferta por tempo limitado</p>
+   </div>
+  </div>
+  <div id="toast" class="fixed bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-lg text-sm opacity-0 transition-opacity duration-300 pointer-events-none" style="background: #FFE009; color: #050505; font-weight: 600;"></div>
+  <script>
+// State
+let currentData = [];
+let isSubmitting = false;
+
+const defaultConfig = {
+  background_color: '#050505',
+  surface_color: '#141414',
+  text_color: '#FFE009',
+  primary_action_color: '#FFE009',
+  secondary_action_color: '#FFE009',
+  font_family: 'Outfit',
+  font_size: 16,
+  question_text: 'Você quer ganhar massa muscular de verdade?',
+  primary_button_text: 'SIM, EU QUERO! 🔥',
+  secondary_button_text: 'Quero saber mais →',
+  product_link: 'https://app.monetizze.com.br/r/BZP1880422',
+  emoji_icon: '💪'
+};
+
+function applyConfig(config) {
+  const bg = config.background_color || defaultConfig.background_color;
+  const surface = config.surface_color || defaultConfig.surface_color;
+  const text = config.text_color || defaultConfig.text_color;
+  const primary = config.primary_action_color || defaultConfig.primary_action_color;
+  const secondary = config.secondary_action_color || defaultConfig.secondary_action_color;
+  const font = config.font_family || defaultConfig.font_family;
+  const size = config.font_size || defaultConfig.font_size;
+  const link = config.product_link || defaultConfig.product_link;
+
+  const wrapper = document.getElementById('app-wrapper');
+  wrapper.style.background = `radial-gradient(ellipse at top, ${lighten(bg, 15)} 0%, ${bg} 70%)`;
+
+  const card = document.getElementById('main-card');
+  card.style.background = `rgba(${hexToRgb(surface)}, 0.92)`;
+  card.style.borderColor = `rgba(${hexToRgb(primary)}, 0.2)`;
+
+  const q = document.getElementById('question');
+  q.textContent = config.question_text || defaultConfig.question_text;
+  q.style.color = text;
+  q.style.fontSize = `${size * 1.75}px`;
+  q.style.fontFamily = `${font}, sans-serif`;
+
+  document.getElementById('emoji-display').textContent = config.emoji_icon || defaultConfig.emoji_icon;
+
+  const btnP = document.getElementById('btn-primary');
+  btnP.textContent = config.primary_button_text || defaultConfig.primary_button_text;
+  btnP.style.background = `linear-gradient(135deg, ${primary}, ${darken(primary, 15)})`;
+  btnP.style.color = bg;
+  btnP.style.fontSize = `${size * 1.1}px`;
+  btnP.style.fontFamily = `${font}, sans-serif`;
+  btnP.href = link;
+
+  const btnS = document.getElementById('btn-secondary');
+  btnS.textContent = config.secondary_button_text || defaultConfig.secondary_button_text;
+  btnS.style.borderColor = `rgba(${hexToRgb(secondary)}, 0.4)`;
+  btnS.style.color = secondary;
+  btnS.style.fontSize = `${size}px`;
+  btnS.style.fontFamily = `${font}, sans-serif`;
+  btnS.href = link;
+
+  document.getElementById('close-btn').style.fontFamily = `${font}, sans-serif`;
+}
+
+function hexToRgb(hex) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `${r},${g},${b}`;
+}
+
+function lighten(hex, pct) {
+  let r = parseInt(hex.slice(1,3),16);
+  let g = parseInt(hex.slice(3,5),16);
+  let b = parseInt(hex.slice(5,7),16);
+  r = Math.min(255, r + Math.round(pct * 2.55));
+  g = Math.min(255, g + Math.round(pct * 2.55));
+  b = Math.min(255, b + Math.round(pct * 2.55));
+  return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`;
+}
+
+function darken(hex, pct) {
+  let r = parseInt(hex.slice(1,3),16);
+  let g = parseInt(hex.slice(3,5),16);
+  let b = parseInt(hex.slice(5,7),16);
+  r = Math.max(0, r - Math.round(pct * 2.55));
+  g = Math.max(0, g - Math.round(pct * 2.55));
+  b = Math.max(0, b - Math.round(pct * 2.55));
+  return `#${r.toString(16).padStart(2,'0')}${g.toString(16).padStart(2,'0')}${b.toString(16).padStart(2,'0')}`;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.opacity = '1';
+  setTimeout(() => t.style.opacity = '0', 2000);
+}
+
+async function handleAction(action) {
+  if (isSubmitting) return;
+  if (currentData.length >= 999) { showToast('Limite de registros atingido'); return; }
+  isSubmitting = true;
+  const result = await window.dataSdk.create({
+    action: action,
+    timestamp: new Date().toISOString(),
+    identifier: 'user_' + Date.now()
+  });
+  isSubmitting = false;
+  if (result.isOk) {
+    showToast('Ação registrada ✓');
+  } else {
+    showToast('Erro ao registrar');
+  }
+}
+
+// Data SDK
+const dataHandler = {
+  onDataChanged(data) {
+    currentData = data;
+  }
+};
+
+// Element SDK
+window.elementSdk.init({
+  defaultConfig,
+  onConfigChange: async (config) => { applyConfig(config); },
+  mapToCapabilities: (config) => ({
+    recolorables: [
+      { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+      { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+      { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+      { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+      { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
+    ],
+    borderables: [],
+    fontEditable: {
+      get: () => config.font_family || defaultConfig.font_family,
+      set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+    },
+    fontSizeable: {
+      get: () => config.font_size || defaultConfig.font_size,
+      set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+    }
+  }),
+  mapToEditPanelValues: (config) => new Map([
+    ['question_text', config.question_text || defaultConfig.question_text],
+    ['primary_button_text', config.primary_button_text || defaultConfig.primary_button_text],
+    ['secondary_button_text', config.secondary_button_text || defaultConfig.secondary_button_text],
+    ['product_link', config.product_link || defaultConfig.product_link],
+    ['emoji_icon', config.emoji_icon || defaultConfig.emoji_icon]
+  ])
+});
+
+applyConfig(defaultConfig);
+
+(async () => {
+  const r = await window.dataSdk.init(dataHandler);
+  if (!r.isOk) console.error('Data SDK init failed');
+})();
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ef75527f650b1fc',t:'MTc3NjcyMTQ5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
