@@ -1,53 +1,88 @@
 <!doctype html>
 <html lang="pt-BR" class="h-full">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Política de Privacidade</title>
+
+  <!-- PRELOAD DA IMAGEM -->
+  <link
+    rel="preload"
+    as="image"
+    href="https://i.imgur.com/BYI3xaB.jpeg"
+  >
+
+  <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="/_sdk/element_sdk.js"></script>
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- FONT -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- SDK -->
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+
+  <!-- ICONS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
 
   <style>
-    html, body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
       height: 100%;
       margin: 0;
+      overflow: hidden;
       font-family: 'DM Sans', sans-serif;
+
+      /* FUNDO IMEDIATO */
+      background: #000 url('https://i.imgur.com/BYI3xaB.jpeg') center center / cover no-repeat fixed;
     }
 
     .backdrop {
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.60);
     }
 
-    body {
-      box-sizing: border-box;
+    .modal {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
   </style>
-
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/_sdk/data_sdk.js"></script>
 </head>
 
-<body class="h-full w-full relative overflow-hidden">
-
-  <!-- IMAGEM DE FUNDO -->
-  <img
-    src="https://i.imgur.com/BYI3xaB.jpeg"
-    alt="Background"
-    loading="lazy"
-    class="absolute inset-0 w-full h-full object-cover"
-    onerror="this.src='https://i.imgur.com/BYI3xaB.png';"
-  >
+<body>
 
   <!-- OVERLAY -->
   <div class="absolute inset-0 backdrop flex items-center justify-center p-4">
 
     <!-- MODAL -->
-    <div class="bg-white rounded-2xl w-full max-w-sm shadow-2xl overflow-hidden">
+    <div class="modal bg-white/95 rounded-2xl w-full max-w-sm shadow-2xl overflow-hidden">
 
+      <!-- TOPO -->
       <div class="flex items-center justify-between px-5 pt-5 pb-2">
-        <h2 id="modal-title" class="text-lg font-bold text-gray-900">
+
+        <h2
+          id="modal-title"
+          class="text-lg font-bold text-gray-900"
+        >
           Política de Privacidade
         </h2>
 
@@ -59,15 +94,20 @@
         >
           ×
         </a>
+
       </div>
 
+      <!-- TEXTO -->
       <div class="px-5 py-4 text-sm text-gray-600 max-h-60 overflow-y-auto">
+
         <p>
           Coletamos dados para melhorar sua experiência e não compartilhamos com terceiros.
           Você pode solicitar acesso ou exclusão dos seus dados a qualquer momento.
         </p>
+
       </div>
 
+      <!-- BOTÕES -->
       <div class="px-5 pb-5 pt-3 flex gap-3">
 
         <a
@@ -89,7 +129,9 @@
         </a>
 
       </div>
+
     </div>
+
   </div>
 
   <script>
@@ -108,76 +150,141 @@
       defaultConfig,
 
       onConfigChange: async (config) => {
+
         document.getElementById('modal-title').textContent =
           config.modal_title || defaultConfig.modal_title;
 
-        const font = config.font_family || defaultConfig.font_family;
+        const font =
+          config.font_family || defaultConfig.font_family;
 
-        document.body.style.fontFamily = `${font}, sans-serif`;
+        document.body.style.fontFamily =
+          `${font}, sans-serif`;
       },
 
       mapToCapabilities: (config) => ({
+
         recolorables: [
+
           {
-            get: () => config.background_color || defaultConfig.background_color,
+            get: () =>
+              config.background_color ||
+              defaultConfig.background_color,
+
             set: (v) => {
               config.background_color = v;
-              window.elementSdk.setConfig({ background_color: v });
+
+              window.elementSdk.setConfig({
+                background_color: v
+              });
             }
           },
+
           {
-            get: () => config.surface_color || defaultConfig.surface_color,
+            get: () =>
+              config.surface_color ||
+              defaultConfig.surface_color,
+
             set: (v) => {
               config.surface_color = v;
-              window.elementSdk.setConfig({ surface_color: v });
+
+              window.elementSdk.setConfig({
+                surface_color: v
+              });
             }
           },
+
           {
-            get: () => config.text_color || defaultConfig.text_color,
+            get: () =>
+              config.text_color ||
+              defaultConfig.text_color,
+
             set: (v) => {
               config.text_color = v;
-              window.elementSdk.setConfig({ text_color: v });
+
+              window.elementSdk.setConfig({
+                text_color: v
+              });
             }
           },
+
           {
-            get: () => config.primary_action || defaultConfig.primary_action,
+            get: () =>
+              config.primary_action ||
+              defaultConfig.primary_action,
+
             set: (v) => {
               config.primary_action = v;
-              window.elementSdk.setConfig({ primary_action: v });
+
+              window.elementSdk.setConfig({
+                primary_action: v
+              });
             }
           },
+
           {
-            get: () => config.secondary_action || defaultConfig.secondary_action,
+            get: () =>
+              config.secondary_action ||
+              defaultConfig.secondary_action,
+
             set: (v) => {
               config.secondary_action = v;
-              window.elementSdk.setConfig({ secondary_action: v });
+
+              window.elementSdk.setConfig({
+                secondary_action: v
+              });
             }
           }
+
         ],
 
         borderables: [],
 
         fontEditable: {
-          get: () => config.font_family || defaultConfig.font_family,
+
+          get: () =>
+            config.font_family ||
+            defaultConfig.font_family,
+
           set: (v) => {
+
             config.font_family = v;
-            window.elementSdk.setConfig({ font_family: v });
+
+            window.elementSdk.setConfig({
+              font_family: v
+            });
+
           }
+
         },
 
         fontSizeable: {
-          get: () => config.font_size || defaultConfig.font_size,
+
+          get: () =>
+            config.font_size ||
+            defaultConfig.font_size,
+
           set: (v) => {
+
             config.font_size = v;
-            window.elementSdk.setConfig({ font_size: v });
+
+            window.elementSdk.setConfig({
+              font_size: v
+            });
+
           }
+
         }
+
       }),
 
       mapToEditPanelValues: (config) =>
         new Map([
-          ["modal_title", config.modal_title || defaultConfig.modal_title]
+          [
+            "modal_title",
+            config.modal_title || defaultConfig.modal_title
+          ]
         ])
+
     });
   </script>
 
