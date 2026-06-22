@@ -1,292 +1,35 @@
-<!doctype html>
-<html lang="pt-BR" class="h-full">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Política de Privacidade</title>
-
-  <!-- PRELOAD DA IMAGEM -->
-  <link
-    rel="preload"
-    as="image"
-    href="https://i.imgur.com/BYI3xaB.jpeg"
-  >
-
-  <!-- TAILWIND -->
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-
-  <!-- FONT -->
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- SDK -->
-  <script src="/_sdk/element_sdk.js"></script>
-  <script src="/_sdk/data_sdk.js"></script>
-
-  <!-- ICONS -->
-  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      overflow: hidden;
-      font-family: 'DM Sans', sans-serif;
-
-      /* FUNDO IMEDIATO */
-      background: #000 url('https://i.imgur.com/BYI3xaB.jpeg') center center / cover no-repeat fixed;
-    }
-
-    .backdrop {
-      background: rgba(0, 0, 0, 0.60);
-    }
-
-    .modal {
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Política de Privacidade</title>
+<link rel="preload" href="https://imgur.com/JrT6BK5.jpg" as="image">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#000 url('https://imgur.com/JrT6BK5.jpg') center/cover no-repeat fixed}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:1rem}
+.modal{background:#fff;border-radius:16px;padding:2.5rem;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.4);text-align:center}
+.modal h2{font-size:1.4rem;font-weight:600;margin-bottom:1rem;color:#111}
+.modal p{font-size:.95rem;color:#444;line-height:1.6;margin-bottom:1.5rem}
+.btns{display:flex;flex-direction:column;gap:.75rem}
+.btn{display:block;padding:.85rem;border-radius:10px;text-decoration:none;font-weight:600;font-size:1rem;transition:transform .15s}
+.btn:hover{transform:scale(1.02)}
+.btn-accept{background:#10b981;color:#fff}
+.btn-decline{background:#e5e7eb;color:#333}
+</style>
 </head>
-
 <body>
-
-  <!-- OVERLAY -->
-  <div class="absolute inset-0 backdrop flex items-center justify-center p-4">
-
-    <!-- MODAL -->
-    <div class="modal bg-white/95 rounded-2xl w-full max-w-sm shadow-2xl overflow-hidden">
-
-      <!-- TOPO -->
-      <div class="flex items-center justify-between px-5 pt-5 pb-2">
-
-        <h2
-          id="modal-title"
-          class="text-lg font-bold text-gray-900"
-        >
-          Política de Privacidade
-        </h2>
-
-        <a
-          href="https://app.monetizze.com.br/r/BZP1880422"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-gray-400 hover:text-gray-700 text-2xl leading-none"
-        >
-          ×
-        </a>
-
-      </div>
-
-      <!-- TEXTO -->
-      <div class="px-5 py-4 text-sm text-gray-600 max-h-60 overflow-y-auto">
-
-        <p>
-          Coletamos dados para melhorar sua experiência e não compartilhamos com terceiros.
-          Você pode solicitar acesso ou exclusão dos seus dados a qualquer momento.
-        </p>
-
-      </div>
-
-      <!-- BOTÕES -->
-      <div class="px-5 pb-5 pt-3 flex gap-3">
-
-        <a
-          href="https://app.monetizze.com.br/r/BZP1880422"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex-1 text-center py-3 rounded-xl bg-emerald-600 text-white font-medium text-sm hover:bg-emerald-700 transition"
-        >
-          Aceito
-        </a>
-
-        <a
-          href="https://app.monetizze.com.br/r/BZP1880422"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex-1 text-center py-3 rounded-xl border-2 border-gray-300 text-gray-700 font-medium text-sm hover:bg-gray-100 transition"
-        >
-          Não Aceito
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <script>
-    const defaultConfig = {
-      modal_title: "Política de Privacidade",
-      background_color: "#000000",
-      surface_color: "#ffffff",
-      text_color: "#374151",
-      primary_action: "#059669",
-      secondary_action: "#d1d5db",
-      font_family: "DM Sans",
-      font_size: 14
-    };
-
-    window.elementSdk.init({
-      defaultConfig,
-
-      onConfigChange: async (config) => {
-
-        document.getElementById('modal-title').textContent =
-          config.modal_title || defaultConfig.modal_title;
-
-        const font =
-          config.font_family || defaultConfig.font_family;
-
-        document.body.style.fontFamily =
-          `${font}, sans-serif`;
-      },
-
-      mapToCapabilities: (config) => ({
-
-        recolorables: [
-
-          {
-            get: () =>
-              config.background_color ||
-              defaultConfig.background_color,
-
-            set: (v) => {
-              config.background_color = v;
-
-              window.elementSdk.setConfig({
-                background_color: v
-              });
-            }
-          },
-
-          {
-            get: () =>
-              config.surface_color ||
-              defaultConfig.surface_color,
-
-            set: (v) => {
-              config.surface_color = v;
-
-              window.elementSdk.setConfig({
-                surface_color: v
-              });
-            }
-          },
-
-          {
-            get: () =>
-              config.text_color ||
-              defaultConfig.text_color,
-
-            set: (v) => {
-              config.text_color = v;
-
-              window.elementSdk.setConfig({
-                text_color: v
-              });
-            }
-          },
-
-          {
-            get: () =>
-              config.primary_action ||
-              defaultConfig.primary_action,
-
-            set: (v) => {
-              config.primary_action = v;
-
-              window.elementSdk.setConfig({
-                primary_action: v
-              });
-            }
-          },
-
-          {
-            get: () =>
-              config.secondary_action ||
-              defaultConfig.secondary_action,
-
-            set: (v) => {
-              config.secondary_action = v;
-
-              window.elementSdk.setConfig({
-                secondary_action: v
-              });
-            }
-          }
-
-        ],
-
-        borderables: [],
-
-        fontEditable: {
-
-          get: () =>
-            config.font_family ||
-            defaultConfig.font_family,
-
-          set: (v) => {
-
-            config.font_family = v;
-
-            window.elementSdk.setConfig({
-              font_family: v
-            });
-
-          }
-
-        },
-
-        fontSizeable: {
-
-          get: () =>
-            config.font_size ||
-            defaultConfig.font_size,
-
-          set: (v) => {
-
-            config.font_size = v;
-
-            window.elementSdk.setConfig({
-              font_size: v
-            });
-
-          }
-
-        }
-
-      }),
-
-      mapToEditPanelValues: (config) =>
-        new Map([
-          [
-            "modal_title",
-            config.modal_title || defaultConfig.modal_title
-          ]
-        ])
-
-    });
-  </script>
-
+<div class="overlay">
+<div class="modal">
+<h2>Política de Privacidade</h2>
+<p>Coletamos dados para melhorar sua experiência e não compartilhamos suas informações com terceiros. Você pode solicitar acesso ou exclusão dos seus dados a qualquer momento.</p>
+<div class="btns">
+<a href="https://ev.braip.com/campanhas/cpa/cam44zv86" class="btn btn-accept">Aceito</a>
+<a href="https://ev.braip.com/campanhas/cpa/cam44zv86" class="btn btn-decline">Não Aceito</a>
+</div>
+</div>
+</div>
 </body>
 </html>
