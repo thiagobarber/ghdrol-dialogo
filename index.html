@@ -4,82 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GHDROL - Informações Importantes Antes de Comprar</title>
+    <!-- Pré-carregamento da imagem para acelerar a abertura -->
+    <link rel="preload" href="https://i.imgur.com/uWhvY07.png" as="image">
     <style>
         *, *::before, *::after { box-sizing: border-box; }
-        @page {
-            size: A4;
-            margin: 15mm 12mm;
-            background-color: #0b0b0b;
-        }
         body {
             margin: 0; padding: 0;
             background-color: #0b0b0b; color: #ffffff;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-size: 11pt; line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
         }
-        .container { max-width: 650px; margin: 0 auto; padding: 10px; }
+        .container { max-width: 600px; margin: 0 auto; padding: 15px; }
+        
         .alert-bar {
-            border-bottom: 2px solid #ffcc00; padding-bottom: 8px; margin-bottom: 25px;
-            text-transform: uppercase; font-size: 8pt; letter-spacing: 2px; color: #aaaaaa; text-align: center;
+            border-bottom: 2px solid #ffcc00; padding-bottom: 8px; margin-bottom: 20px;
+            text-transform: uppercase; font-size: 8pt; letter-spacing: 1px; color: #aaaaaa; text-align: center;
         }
         .alert-bar span { color: #ffcc00; font-weight: bold; }
+        
         .tag-status {
             display: inline-block; background-color: #ffcc00; color: #000000;
-            font-weight: bold; font-size: 9pt; padding: 4px 10px; border-radius: 3px;
-            margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;
+            font-weight: bold; font-size: 8.5pt; padding: 4px 10px; border-radius: 3px;
+            margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;
         }
-        h1 { font-size: 24pt; font-weight: 800; line-height: 1.2; margin: 0 0 12px 0; color: #ffffff; }
-        h1 span { color: #ffcc00; }
-        .sub-text { color: #dddddd; font-size: 12pt; line-height: 1.4; margin: 0 0 25px 0; border-left: 3px solid #ffcc00; padding-left: 12px; }
         
+        h1 { font-size: 22pt; font-weight: 800; line-height: 1.2; margin: 0 0 12px 0; color: #ffffff; }
+        h1 span { color: #ffcc00; }
+        
+        .sub-text { color: #dddddd; font-size: 11.5pt; line-height: 1.4; margin: 0 0 20px 0; border-left: 3px solid #ffcc00; padding-left: 12px; }
+        
+        /* Container do produto otimizado para Mobile (Flexbox vertical por padrão) */
         .product-box {
-            display: table; width: 100%; margin: 25px 0; background: #141414; border: 1px solid #222222; border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            background: #141414;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            padding: 15px;
         }
-        .product-cell { display: table-cell; vertical-align: middle; padding: 20px; }
-        .img-panel { width: 35%; text-align: center; background: #1a1a1a; border-right: 1px solid #222222; }
-        .product-img { max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 4px; }
+        
+        /* Painel da imagem expandido no mobile */
+        .img-panel {
+            width: 100%;
+            max-width: 260px; /* Garante que a imagem fique grande e visível */
+            text-align: center;
+            padding: 10px;
+            background: #1a1a1a;
+            border-radius: 6px;
+        }
+        
+        /* Otimização de performance e tamanho da imagem */
+        .product-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            content-visibility: auto; /* Melhora a renderização do navegador */
+        }
+        
+        .info-panel {
+            width: 100%;
+        }
         
         .quick-ticks { margin: 0; padding: 0 0 0 15px; }
-        .quick-ticks li { margin-bottom: 10px; color: #eeeeee; }
+        .quick-ticks li { margin-bottom: 10px; color: #eeeeee; font-size: 10.5pt; }
         .quick-ticks strong { color: #ffcc00; }
 
-        .cta-area { text-align: center; margin: 25px 0; }
+        /* CTA centralizado e com toque fácil no mobile */
+        .cta-area { text-align: center; margin: 25px 0; padding: 0 5px; }
         .btn-main {
-            display: inline-block; background-color: #ffcc00; color: #000000; font-weight: bold;
-            font-size: 13pt; text-transform: uppercase; text-decoration: none; padding: 14px 40px;
-            border-radius: 4px; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+            display: block; /* Ocupa a largura máxima disponível no celular */
+            background-color: #ffcc00; color: #000000; font-weight: bold;
+            font-size: 12pt; text-transform: uppercase; text-decoration: none; padding: 16px 20px;
+            border-radius: 6px; letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
+            transition: background 0.2s;
         }
-        .btn-sub { font-size: 8.5pt; color: #aaaaaa; margin-top: 8px; display: block; }
+        .btn-sub { font-size: 8pt; color: #aaaaaa; margin-top: 10px; display: block; }
 
-        .faq-section { border-top: 1px solid #222222; padding-top: 30px; margin-top: 35px; }
-        h2 { color: #ffcc00; font-size: 14pt; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 20px 0; }
+        .faq-section { border-top: 1px solid #222222; padding-top: 25px; margin-top: 30px; }
+        h2 { color: #ffcc00; font-size: 13pt; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 15px 0; }
         
-        .faq-item { margin-bottom: 20px; background: #141414; padding: 15px; border-radius: 5px; border-left: 2px solid #ffcc00; }
-        .faq-q { font-weight: bold; color: #ffffff; font-size: 11pt; margin-bottom: 6px; }
-        .faq-a { color: #cccccc; font-size: 10.5pt; margin: 0; }
+        .faq-item { margin-bottom: 15px; background: #141414; padding: 15px; border-radius: 6px; border-left: 3px solid #ffcc00; }
+        .faq-q { font-weight: bold; color: #ffffff; font-size: 10.5pt; margin-bottom: 6px; }
+        .faq-a { color: #cccccc; font-size: 10pt; margin: 0; text-align: left; }
 
-        .guarantee-card { background: #1a1600; border: 1px solid #ffcc00; padding: 18px; border-radius: 5px; margin: 25px 0; }
-        .guarantee-card h3 { margin: 0 0 8px 0; color: #ffcc00; font-size: 11pt; text-transform: uppercase; }
+        .guarantee-card { background: #1a1600; border: 1px solid #ffcc00; padding: 15px; border-radius: 6px; margin: 20px 0; }
+        .guarantee-card h3 { margin: 0 0 6px 0; color: #ffcc00; font-size: 11pt; text-transform: uppercase; }
         .guarantee-card p { margin: 0; font-size: 10pt; color: #eeeeee; }
         
-        .footer-law { text-align: center; font-size: 8pt; color: #555555; margin-top: 35px; border-top: 1px solid #1c1c1c; padding-top: 15px; }
+        .footer-law { text-align: center; font-size: 7.5pt; color: #555555; margin-top: 30px; border-top: 1px solid #1c1c1c; padding-top: 15px; }
+
+        /* Media Query para telas ligeiramente maiores (Desktops/Tablets) */
+        @media (min-width: 480px) {
+            .product-box { flex-direction: row; padding: 20px; }
+            .img-panel { width: 35%; }
+            .info-panel { width: 65%; }
+            .btn-main { display: inline-block; padding: 14px 40px; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="alert-bar">DISTRIBUIDOR AUTORIZADO • <span>CHECKOUT PROTEGIDO 2026</span></div>
 
-        <!-- PRIMEIRA SESSÃO: DIRECIONAMENTO DIRETO COM TITULO CURTO -->
+        <!-- PRIMEIRA SESSÃO -->
         <div class="tag-status">✓ Canal de Distribuição Direta</div>
         <h1>Por que comprar o <span>GHDROL</span> hoje?</h1>
         <div class="sub-text">Se você já conhece os benefícios da fórmula, certifique-se de garantir o seu kit original com rastreamento ativo e garantia blindada de 60 dias antes da virada do lote promocional.</div>
         
         <div class="product-box">
-            <div class="product-cell img-panel">
-                <!-- Imagem oficial do produto fornecida pelo usuário -->
-                <img src="https://imgur.com/uWhvY07.png" alt="GHDROL Original" class="product-img">
+            <div class="img-panel">
+                <!-- URL direta corrigida para aceleração do Imgur (.png) -->
+                <img src="https://i.imgur.com/uWhvY07.png" alt="GHDROL Original" class="product-img" fetchpriority="high">
             </div>
-            <div class="product-cell">
+            <div class="info-panel">
                 <ul class="quick-ticks">
                     <li><strong>Garantia do Fabricante:</strong> Cobertura total de 60 dias para testar sem riscos.</li>
                     <li><strong>Lote 100% Original:</strong> Fórmula autêntica direto da Ghmuscle via Braip.</li>
@@ -93,7 +136,7 @@
             <span class="btn-sub">🔒 Link seguro com criptografia de ponta a ponta</span>
         </div>
 
-        <!-- SEGUNDA SESSÃO: MATANDO AS ÚLTIMAS DUVIDAS E OBJEÇÕES DO COMPRADOR -->
+        <!-- SEGUNDA SESSÃO: QUEBRA DE OBJEÇÕES -->
         <div class="faq-section">
             <h2>Tirando Suas Dúvidas Antes de Finalizar a Compra</h2>
             
@@ -117,13 +160,12 @@
                 <p>O produtor confia tanto na eficácia da formulação que oferece risco zero: consuma o produto conforme as recomendações e, se não ficar satisfeito com os resultados obtidos, basta acionar o suporte em até 60 dias para reaver o valor investido.</p>
             </div>
 
-            <div class="product-box" style="margin-top: 25px;">
-                <div class="product-cell img-panel" style="background: #111111; width: 30%;">
-                    <!-- Segunda inserção da imagem do produto no review -->
-                    <img src="https://imgur.com/uWhvY07.png" alt="GHDROL Suplemento" class="product-img">
+            <div class="product-box">
+                <div class="img-panel">
+                    <img src="https://i.imgur.com/uWhvY07.png" alt="GHDROL Suplemento" class="product-img" loading="lazy">
                 </div>
-                <div class="product-cell">
-                    <p style="margin: 0; font-size: 10pt; color: #ffffff;"><strong>Alerta de Lote:</strong> Devido ao grande volume de vendas, o estoque promocional disponibilizado direto de fábrica pelo link de afiliado está limitado às unidades de hoje.</p>
+                <div class="info-panel">
+                    <p style="margin: 0; font-size: 10pt; color: #ffffff; text-align: left;"><strong>Alerta de Lote:</strong> Devido ao grande volume de vendas, o estoque promocional disponibilizado direto de fábrica pelo link de afiliado está limitado às unidades de hoje.</p>
                 </div>
             </div>
 
