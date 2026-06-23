@@ -1,181 +1,202 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GHDROL - Informações Importantes Antes de Comprar</title>
-    <!-- Pré-carregamento da imagem para acelerar a abertura -->
-    <link rel="preload" href="https://i.imgur.com/uWhvY07.png" as="image">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; }
-        body {
-            margin: 0; padding: 0;
-            background-color: #0b0b0b; color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            font-size: 11pt; line-height: 1.5;
-            -webkit-text-size-adjust: 100%;
-        }
-        .container { max-width: 600px; margin: 0 auto; padding: 15px; }
-        
-        .alert-bar {
-            border-bottom: 2px solid #ffcc00; padding-bottom: 8px; margin-bottom: 20px;
-            text-transform: uppercase; font-size: 8pt; letter-spacing: 1px; color: #aaaaaa; text-align: center;
-        }
-        .alert-bar span { color: #ffcc00; font-weight: bold; }
-        
-        .tag-status {
-            display: inline-block; background-color: #ffcc00; color: #000000;
-            font-weight: bold; font-size: 8.5pt; padding: 4px 10px; border-radius: 3px;
-            margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;
-        }
-        
-        h1 { font-size: 22pt; font-weight: 800; line-height: 1.2; margin: 0 0 12px 0; color: #ffffff; }
-        h1 span { color: #ffcc00; }
-        
-        .sub-text { color: #dddddd; font-size: 11.5pt; line-height: 1.4; margin: 0 0 20px 0; border-left: 3px solid #ffcc00; padding-left: 12px; }
-        
-        /* Container do produto otimizado para Mobile (Flexbox vertical por padrão) */
-        .product-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin: 20px 0;
-            background: #141414;
-            border: 1px solid #222222;
-            border-radius: 8px;
-            padding: 15px;
-        }
-        
-        /* Painel da imagem expandido no mobile */
-        .img-panel {
-            width: 100%;
-            max-width: 260px; /* Garante que a imagem fique grande e visível */
-            text-align: center;
-            padding: 10px;
-            background: #1a1a1a;
-            border-radius: 6px;
-        }
-        
-        /* Otimização de performance e tamanho da imagem */
-        .product-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            content-visibility: auto; /* Melhora a renderização do navegador */
-        }
-        
-        .info-panel {
-            width: 100%;
-        }
-        
-        .quick-ticks { margin: 0; padding: 0 0 0 15px; }
-        .quick-ticks li { margin-bottom: 10px; color: #eeeeee; font-size: 10.5pt; }
-        .quick-ticks strong { color: #ffcc00; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review GHDROL</title>
 
-        /* CTA centralizado e com toque fácil no mobile */
-        .cta-area { text-align: center; margin: 25px 0; padding: 0 5px; }
-        .btn-main {
-            display: block; /* Ocupa a largura máxima disponível no celular */
-            background-color: #ffcc00; color: #000000; font-weight: bold;
-            font-size: 12pt; text-transform: uppercase; text-decoration: none; padding: 16px 20px;
-            border-radius: 6px; letter-spacing: 0.5px;
-            box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
-            transition: background 0.2s;
-        }
-        .btn-sub { font-size: 8pt; color: #aaaaaa; margin-top: 10px; display: block; }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .faq-section { border-top: 1px solid #222222; padding-top: 25px; margin-top: 30px; }
-        h2 { color: #ffcc00; font-size: 13pt; text-transform: uppercase; letter-spacing: 0.5px; margin: 0 0 15px 0; }
-        
-        .faq-item { margin-bottom: 15px; background: #141414; padding: 15px; border-radius: 6px; border-left: 3px solid #ffcc00; }
-        .faq-q { font-weight: bold; color: #ffffff; font-size: 10.5pt; margin-bottom: 6px; }
-        .faq-a { color: #cccccc; font-size: 10pt; margin: 0; text-align: left; }
+body{
+    background:#000;
+    color:#fff;
+    font-family:Arial, sans-serif;
+    line-height:1.7;
+}
 
-        .guarantee-card { background: #1a1600; border: 1px solid #ffcc00; padding: 15px; border-radius: 6px; margin: 20px 0; }
-        .guarantee-card h3 { margin: 0 0 6px 0; color: #ffcc00; font-size: 11pt; text-transform: uppercase; }
-        .guarantee-card p { margin: 0; font-size: 10pt; color: #eeeeee; }
-        
-        .footer-law { text-align: center; font-size: 7.5pt; color: #555555; margin-top: 30px; border-top: 1px solid #1c1c1c; padding-top: 15px; }
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
 
-        /* Media Query para telas ligeiramente maiores (Desktops/Tablets) */
-        @media (min-width: 480px) {
-            .product-box { flex-direction: row; padding: 20px; }
-            .img-panel { width: 35%; }
-            .info-panel { width: 65%; }
-            .btn-main { display: inline-block; padding: 14px 40px; }
-        }
-    </style>
+section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+h1,h2{
+    color:#FFD700;
+    margin-bottom:25px;
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+h1{
+    font-size:38px;
+}
+
+h2{
+    font-size:32px;
+}
+
+p{
+    font-size:20px;
+    margin-bottom:20px;
+}
+
+.highlight{
+    color:#FFD700;
+    font-weight:bold;
+}
+
+.product-image{
+    width:100%;
+    max-width:400px;
+    border-radius:12px;
+    margin:30px auto;
+    display:block;
+}
+
+.cta-button{
+    display:inline-block;
+    background:#FFD700;
+    color:#000;
+    text-decoration:none;
+    padding:18px 35px;
+    font-size:22px;
+    font-weight:bold;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.cta-button:hover{
+    transform:scale(1.05);
+}
+
+.review-box{
+    text-align:left;
+    max-width:700px;
+    margin:30px auto;
+}
+
+.review-box p{
+    margin-bottom:15px;
+}
+
+.divider{
+    height:2px;
+    background:#FFD700;
+    margin:20px auto;
+    width:100px;
+}
+
+@media(max-width:768px){
+
+h1{
+    font-size:30px;
+}
+
+h2{
+    font-size:26px;
+}
+
+p{
+    font-size:18px;
+}
+
+.cta-button{
+    width:100%;
+}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="alert-bar">DISTRIBUIDOR AUTORIZADO • <span>CHECKOUT PROTEGIDO 2026</span></div>
 
-        <!-- PRIMEIRA SESSÃO -->
-        <div class="tag-status">✓ Canal de Distribuição Direta</div>
-        <h1>Por que comprar o <span>GHDROL</span> hoje?</h1>
-        <div class="sub-text">Se você já conhece os benefícios da fórmula, certifique-se de garantir o seu kit original com rastreamento ativo e garantia blindada de 60 dias antes da virada do lote promocional.</div>
-        
-        <div class="product-box">
-            <div class="img-panel">
-                <!-- URL direta corrigida para aceleração do Imgur (.png) -->
-                <img src="https://i.imgur.com/uWhvY07.png" alt="GHDROL Original" class="product-img" fetchpriority="high">
-            </div>
-            <div class="info-panel">
-                <ul class="quick-ticks">
-                    <li><strong>Garantia do Fabricante:</strong> Cobertura total de 60 dias para testar sem riscos.</li>
-                    <li><strong>Lote 100% Original:</strong> Fórmula autêntica direto da Ghmuscle via Braip.</li>
-                    <li><strong>Envio Rápido:</strong> Código de rastreamento enviado via e-mail e WhatsApp.</li>
-                </ul>
-            </div>
-        </div>
+<div class="container">
 
-        <div class="cta-area">
-            <a href="https://ghmuscle.com.br/ghdrol-braip/?pv=prozx3y6&af=afijp7j3m3" class="btn-main">Quero Comprar o GHDROL Original</a>
-            <span class="btn-sub">🔒 Link seguro com criptografia de ponta a ponta</span>
-        </div>
+<section>
 
-        <!-- SEGUNDA SESSÃO: QUEBRA DE OBJEÇÕES -->
-        <div class="faq-section">
-            <h2>Tirando Suas Dúvidas Antes de Finalizar a Compra</h2>
-            
-            <div class="faq-item">
-                <p class="faq-q">⚠️ Por que comprar apenas pelo link direto do fabricante?</p>
-                <p class="faq-a">O GHDROL original não é comercializado em farmácias físicas ou marketplaces terceiros (Mercado Livre, Shopee). Garanta o produto autêntico com lacre protetor e certificação laboratorial clicando nos botões de checkout oficial desta página.</p>
-            </div>
+<h1>
+VOCÊ ESTÁ DEIXANDO GANHOS MUSCULARES NA MESA?
+</h1>
 
-            <div class="faq-item">
-                <p class="faq-q">💪 Em quanto tempo vejo os primeiros resultados?</p>
-                <p class="faq-a">Muitos clientes relatam melhora na força física, resistência muscular e foco nos treinos logo nas primeiras semanas de uso constante (3 cápsulas diárias). O ganho expressivo de massa magra sólida consolida-se a partir de 8 a 12 semanas de protocolo.</p>
-            </div>
+<p>
+Treina pesado, segue dieta e mesmo assim sente que seus resultados poderiam ser melhores?
+</p>
 
-            <div class="faq-item">
-                <p class="faq-q">🚫 O GHDROL possui alguma contraindicação ou efeito colateral?</p>
-                <p class="faq-a">Não. Sendo composto por uma seleção pura e natural de aminoácidos (Arginina, Lisina, Taurina) e micronutrientes (Boro, Zinco), ele atua de forma segura e limpa. Não causa picos de pressão nem efeitos colaterais comuns de substâncias sintéticas.</p>
-            </div>
+<p>
+<span class="highlight">GHDROL</span> foi desenvolvido para quem busca mais força, recuperação muscular, desempenho e evolução física.
+</p>
 
-            <div class="guarantee-card">
-                <h3>Desafio de Satisfação Garantida de 60 Dias</h3>
-                <p>O produtor confia tanto na eficácia da formulação que oferece risco zero: consuma o produto conforme as recomendações e, se não ficar satisfeito com os resultados obtidos, basta acionar o suporte em até 60 dias para reaver o valor investido.</p>
-            </div>
+<p>
+Milhares de praticantes de musculação já descobriram o que pode estar faltando para acelerar seus resultados.
+</p>
 
-            <div class="product-box">
-                <div class="img-panel">
-                    <img src="https://i.imgur.com/uWhvY07.png" alt="GHDROL Suplemento" class="product-img" loading="lazy">
-                </div>
-                <div class="info-panel">
-                    <p style="margin: 0; font-size: 10pt; color: #ffffff; text-align: left;"><strong>Alerta de Lote:</strong> Devido ao grande volume de vendas, o estoque promocional disponibilizado direto de fábrica pelo link oficial está limitado às unidades de hoje.</p>
-                </div>
-            </div>
+<img
+class="product-image"
+src="https://i.imgur.com/30ZdgRm.png"
+alt="GHDROL">
 
-            <div class="cta-area">
-                <a href="https://ghmuscle.com.br/ghdrol-braip/?pv=prozx3y6&af=afijp7j3m3" class="btn-main">Garantir Meu Kit GHDROL com Desconto</a>
-                <span class="btn-sub">O desconto de afiliado é injetado automaticamente ao abrir o checkout da Braip.</span>
-            </div>
-        </div>
+<a
+class="cta-button"
+href="https://ghmuscle.com.br/ghdrol-braip/?pv=prozx3y6&af=afijp7j3m3">
+QUERO CONHECER O GHDROL
+</a>
 
-        <div class="footer-law">Este site é um intermediador informativo oficial. O processamento da compra e o envio do produto são feitos de forma segura e exclusiva pela Ghmuscle via Braip.</div>
-    </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+
+<h2>
+REVIEW COMPLETO DO GHDROL
+</h2>
+
+<div class="review-box">
+
+<p>✅ Auxilia no ganho de massa muscular.</p>
+
+<p>✅ Contribui para mais força durante os treinos.</p>
+
+<p>✅ Favorece uma recuperação muscular mais eficiente.</p>
+
+<p>✅ Ajuda a melhorar a disposição física diária.</p>
+
+<p>✅ Pode potencializar o desempenho esportivo.</p>
+
+<p>✅ Desenvolvido para quem busca evolução corporal de forma consistente.</p>
+
+<p>
+O GHDROL se tornou um dos suplementos mais procurados por atletas e praticantes de musculação que desejam maximizar seus resultados sem complicações.
+</p>
+
+<p>
+Quanto mais cedo você começar, mais cedo poderá avaliar os benefícios que o produto pode proporcionar dentro da sua rotina de treinos.
+</p>
+
+</div>
+
+<img
+class="product-image"
+src="https://i.imgur.com/30ZdgRm.png"
+alt="GHDROL">
+
+<a
+class="cta-button"
+href="https://ghmuscle.com.br/ghdrol-braip/?pv=prozx3y6&af=afijp7j3m3">
+ACESSAR SITE OFICIAL
+</a>
+
+</section>
+
+</div>
+
 </body>
 </html>
