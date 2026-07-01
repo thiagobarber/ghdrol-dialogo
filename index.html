@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>GHDROL Oficial</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://i.imgur.com">
+
+<link rel="preload" as="image" href="https://i.imgur.com/2OYvB3V.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -15,81 +20,69 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Montserrat',sans-serif;
+font-family:Montserrat,sans-serif;
 }
 
 body{
 background:#070705;
 color:#fff;
-line-height:1.6;
+text-align:center;
 }
 
 .container{
 max-width:900px;
 margin:auto;
-padding:25px;
-text-align:center;
+padding:20px;
 }
 
-.headline{
+h1{
 font-size:2.6rem;
 font-weight:900;
-line-height:1.2;
-margin-top:25px;
-margin-bottom:18px;
+line-height:1.15;
+margin:20px 0;
 }
 
-.headline span{
+h1 span{
 color:#FFD400;
 }
 
 .sub{
-font-size:1.15rem;
-color:#d7d7d7;
-margin-bottom:35px;
+font-size:1.05rem;
+color:#ccc;
+margin-bottom:25px;
 }
 
-.produto{
+img{
+display:block;
 width:100%;
 max-width:560px;
-display:block;
-margin:0 auto 35px;
-filter:drop-shadow(0 0 35px rgba(255,212,0,.25));
-transition:.3s ease;
+margin:auto;
+height:auto;
+filter:drop-shadow(0 0 30px rgba(255,212,0,.25));
 }
 
-.produto:hover{
-transform:scale(1.03);
-}
-
-.botao{
+.cta{
 display:inline-block;
+margin:30px 0;
+padding:20px 40px;
 background:#FFD400;
 color:#000;
-text-decoration:none;
-font-size:1.2rem;
 font-weight:800;
-padding:20px 42px;
+font-size:1.2rem;
 border-radius:12px;
-transition:.3s;
-animation:pulse 1.6s infinite;
-box-shadow:0 0 35px rgba(255,212,0,.45);
-}
-
-.botao:hover{
-transform:scale(1.05);
+text-decoration:none;
+animation:pulse 1.5s infinite;
+box-shadow:0 0 30px rgba(255,212,0,.45);
 }
 
 @keyframes pulse{
 
 0%{
 transform:scale(1);
-box-shadow:0 0 0 0 rgba(255,212,0,.65);
 }
 
-70%{
-transform:scale(1.03);
-box-shadow:0 0 0 18px rgba(255,212,0,0);
+50%{
+transform:scale(1.05);
 }
 
 100%{
@@ -99,86 +92,85 @@ transform:scale(1);
 }
 
 .info{
-margin-top:18px;
+margin:15px 0 50px;
+color:#bbb;
 font-size:.95rem;
-color:#bdbdbd;
 }
 
-.certificados{
-margin-top:70px;
-background:#111;
-padding:40px;
-border-radius:18px;
-border:1px solid #222;
-}
-
-.certificados h2{
-font-size:2rem;
-margin-bottom:25px;
-color:#FFD400;
-}
-
-.grid{
+.cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
-margin-top:30px;
+gap:18px;
+margin-top:25px;
 }
 
 .card{
-background:#181818;
-padding:25px;
-border-radius:15px;
-border:1px solid #2a2a2a;
-transition:.3s;
+background:#111;
+padding:22px;
+border-radius:14px;
+border:1px solid #222;
 }
 
-.card:hover{
-transform:translateY(-5px);
-border-color:#FFD400;
-}
-
-.icone{
-font-size:42px;
-margin-bottom:15px;
-}
-
-.card h3{
+.card div{
+font-size:38px;
 margin-bottom:10px;
 }
 
+.card h3{
+margin-bottom:8px;
+font-size:1rem;
+}
+
 .card p{
-font-size:.95rem;
-color:#d0d0d0;
+font-size:.9rem;
+color:#cfcfcf;
 }
 
 footer{
-margin-top:70px;
-padding:40px 25px;
-border-top:1px solid #202020;
-font-size:.82rem;
+margin-top:50px;
+padding:30px 20px;
+font-size:.78rem;
 color:#888;
+border-top:1px solid #222;
 line-height:1.8;
-text-align:center;
 }
 
 @media(max-width:768px){
 
-.headline{
-font-size:2rem;
+.container{
+padding:16px;
+}
+
+h1{
+font-size:1.85rem;
 }
 
 .sub{
-font-size:1rem;
+font-size:.95rem;
 }
 
-.produto{
+img{
 max-width:100%;
 }
 
-.botao{
-width:100%;
+.cta{
+position:fixed;
+left:12px;
+right:12px;
+bottom:12px;
+display:block;
 padding:18px;
+margin:0;
+font-size:1.1rem;
+z-index:999;
+}
+
+body{
+padding-bottom:90px;
+}
+
+.cards{
+grid-template-columns:1fr;
 }
 
 }
@@ -191,17 +183,15 @@ padding:18px;
 
 <div class="container">
 
-<h1 class="headline">
-🔥 O <span>GHDROL</span> Está Mudando o Resultado de Homens em Todo o Brasil.<br>
-Você Pode Ser o Próximo.
+<h1>
+🔥 Descubra por que milhares de homens estão escolhendo o <span>GHDROL</span> para potencializar seus resultados.
 </h1>
 
 <p class="sub">
-Produto original, envio rápido e compra totalmente segura.
+Produto original • Compra protegida • Entrega para todo o Brasil.
 </p>
 
 <img
-class="produto"
 src="https://i.imgur.com/2OYvB3V.png"
 alt="GHDROL"
 width="560"
@@ -210,46 +200,40 @@ loading="eager"
 fetchpriority="high"
 decoding="sync">
 
-<a class="botao"
+<a class="cta"
 href="https://ev.braip.com/campanhas/cpa/cam44zv86">
 QUERO MEU GHDROL
 </a>
 
-<p class="info">
-✔ Compra Segura &nbsp;&nbsp;•&nbsp;&nbsp;
-✔ Produto Original &nbsp;&nbsp;•&nbsp;&nbsp;
-✔ Pagamento Protegido
-</p>
-
+<div class="info">
+✔ Site Seguro &nbsp; • &nbsp; ✔ Produto Original &nbsp; • &nbsp; ✔ Pagamento Protegido
 </div>
 
-<div class="container certificados">
+<h2 style="margin-bottom:20px;color:#FFD400;">🔒 Compra 100% Segura</h2>
 
-<h2>🔒 Compra 100% Segura</h2>
-
-<div class="grid">
+<div class="cards">
 
 <div class="card">
-<div class="icone">🔒</div>
-<h3>Site Seguro</h3>
-<p>Seus dados são protegidos com criptografia SSL.</p>
+<div>🔒</div>
+<h3>SSL Seguro</h3>
+<p>Seus dados permanecem protegidos durante toda a compra.</p>
 </div>
 
 <div class="card">
-<div class="icone">✅</div>
-<h3>Produto Original</h3>
-<p>Receba o GHDROL autêntico diretamente do distribuidor oficial.</p>
+<div>✅</div>
+<h3>Original</h3>
+<p>Produto adquirido diretamente do distribuidor oficial.</p>
 </div>
 
 <div class="card">
-<div class="icone">💳</div>
-<h3>Pagamento Protegido</h3>
-<p>Ambiente de pagamento totalmente seguro.</p>
+<div>💳</div>
+<h3>Pagamento</h3>
+<p>Ambiente seguro e protegido.</p>
 </div>
 
 <div class="card">
-<div class="icone">🚚</div>
-<h3>Entrega Nacional</h3>
+<div>🚚</div>
+<h3>Entrega</h3>
 <p>Envio para todo o Brasil com rastreamento.</p>
 </div>
 
@@ -259,25 +243,13 @@ QUERO MEU GHDROL
 
 <footer>
 
-<p><strong>AVISO LEGAL</strong></p>
+<strong>AVISO LEGAL</strong><br><br>
 
-<p>
-Os resultados podem variar de pessoa para pessoa conforme hábitos alimentares,
-rotina de exercícios e características individuais.
-</p>
+Os resultados podem variar conforme cada pessoa. As informações desta página possuem caráter informativo e não representam promessa ou garantia de resultados. Este produto não substitui alimentação equilibrada nem acompanhamento médico quando necessário.
 
-<p>
-Este produto não substitui alimentação equilibrada nem acompanhamento médico.
-</p>
+<br><br>
 
-<p>
-As informações apresentadas nesta página possuem caráter exclusivamente informativo
-e não representam promessa ou garantia de resultados.
-</p>
-
-<p>
 © 2026 - Todos os direitos reservados.
-</p>
 
 </footer>
 
