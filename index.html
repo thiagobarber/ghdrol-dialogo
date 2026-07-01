@@ -1,202 +1,279 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Review GHDROL</title>
+
+<title>GHDROL Oficial</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
 }
 
 body{
-    background:#000;
-    color:#fff;
-    font-family:Arial, sans-serif;
-    line-height:1.7;
+background:#070705;
+color:#fff;
+line-height:1.6;
 }
 
 .container{
-    max-width:900px;
-    margin:auto;
-    padding:20px;
+max-width:900px;
+margin:auto;
+padding:25px;
+text-align:center;
 }
 
-section{
-    padding:60px 20px;
-    text-align:center;
+.headline{
+font-size:2.6rem;
+font-weight:900;
+line-height:1.2;
+margin-top:25px;
+margin-bottom:18px;
 }
 
-h1,h2{
-    color:#FFD700;
-    margin-bottom:25px;
-    font-weight:900;
-    text-transform:uppercase;
+.headline span{
+color:#FFD400;
 }
 
-h1{
-    font-size:38px;
+.sub{
+font-size:1.15rem;
+color:#d7d7d7;
+margin-bottom:35px;
 }
 
-h2{
-    font-size:32px;
+.produto{
+width:100%;
+max-width:560px;
+display:block;
+margin:0 auto 35px;
+filter:drop-shadow(0 0 35px rgba(255,212,0,.25));
+transition:.3s ease;
 }
 
-p{
-    font-size:20px;
-    margin-bottom:20px;
+.produto:hover{
+transform:scale(1.03);
 }
 
-.highlight{
-    color:#FFD700;
-    font-weight:bold;
+.botao{
+display:inline-block;
+background:#FFD400;
+color:#000;
+text-decoration:none;
+font-size:1.2rem;
+font-weight:800;
+padding:20px 42px;
+border-radius:12px;
+transition:.3s;
+animation:pulse 1.6s infinite;
+box-shadow:0 0 35px rgba(255,212,0,.45);
 }
 
-.product-image{
-    width:100%;
-    max-width:400px;
-    border-radius:12px;
-    margin:30px auto;
-    display:block;
+.botao:hover{
+transform:scale(1.05);
 }
 
-.cta-button{
-    display:inline-block;
-    background:#FFD700;
-    color:#000;
-    text-decoration:none;
-    padding:18px 35px;
-    font-size:22px;
-    font-weight:bold;
-    border-radius:10px;
-    transition:.3s;
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+box-shadow:0 0 0 0 rgba(255,212,0,.65);
 }
 
-.cta-button:hover{
-    transform:scale(1.05);
+70%{
+transform:scale(1.03);
+box-shadow:0 0 0 18px rgba(255,212,0,0);
 }
 
-.review-box{
-    text-align:left;
-    max-width:700px;
-    margin:30px auto;
+100%{
+transform:scale(1);
 }
 
-.review-box p{
-    margin-bottom:15px;
 }
 
-.divider{
-    height:2px;
-    background:#FFD700;
-    margin:20px auto;
-    width:100px;
+.info{
+margin-top:18px;
+font-size:.95rem;
+color:#bdbdbd;
+}
+
+.certificados{
+margin-top:70px;
+background:#111;
+padding:40px;
+border-radius:18px;
+border:1px solid #222;
+}
+
+.certificados h2{
+font-size:2rem;
+margin-bottom:25px;
+color:#FFD400;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.card{
+background:#181818;
+padding:25px;
+border-radius:15px;
+border:1px solid #2a2a2a;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:#FFD400;
+}
+
+.icone{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+font-size:.95rem;
+color:#d0d0d0;
+}
+
+footer{
+margin-top:70px;
+padding:40px 25px;
+border-top:1px solid #202020;
+font-size:.82rem;
+color:#888;
+line-height:1.8;
+text-align:center;
 }
 
 @media(max-width:768px){
 
-h1{
-    font-size:30px;
+.headline{
+font-size:2rem;
 }
 
-h2{
-    font-size:26px;
+.sub{
+font-size:1rem;
 }
 
-p{
-    font-size:18px;
+.produto{
+max-width:100%;
 }
 
-.cta-button{
-    width:100%;
+.botao{
+width:100%;
+padding:18px;
 }
+
 }
+
 </style>
+
 </head>
+
 <body>
 
 <div class="container">
 
-<section>
-
-<h1>
-VOCÊ ESTÁ DEIXANDO GANHOS MUSCULARES NA MESA?
+<h1 class="headline">
+🔥 O <span>GHDROL</span> Está Mudando o Resultado de Homens em Todo o Brasil.<br>
+Você Pode Ser o Próximo.
 </h1>
 
-<p>
-Treina pesado, segue dieta e mesmo assim sente que seus resultados poderiam ser melhores?
+<p class="sub">
+Produto original, envio rápido e compra totalmente segura.
 </p>
 
-<p>
-<span class="highlight">GHDROL</span> foi desenvolvido para quem busca mais força, recuperação muscular, desempenho e evolução física.
-</p>
-
-<p>
-Milhares de praticantes de musculação já descobriram o que pode estar faltando para acelerar seus resultados.
-</p>
-
-<img
-class="product-image"
-src="https://i.imgur.com/30ZdgRm.png"
+<img class="produto"
+src="https://imgur.com/2OYvB3V.png"
 alt="GHDROL">
 
-<a
-class="cta-button"
-href="https://ghmuscle.com.br/ghdrol-braip/?pv=prozx3y6&af=afijp7j3m3">
-QUERO CONHECER O GHDROL
+<a class="botao"
+href="https://ev.braip.com/campanhas/cpa/cam44zv86">
+QUERO MEU GHDROL
 </a>
 
-</section>
-
-<div class="divider"></div>
-
-<section>
-
-<h2>
-REVIEW COMPLETO DO GHDROL
-</h2>
-
-<div class="review-box">
-
-<p>✅ Auxilia no ganho de massa muscular.</p>
-
-<p>✅ Contribui para mais força durante os treinos.</p>
-
-<p>✅ Favorece uma recuperação muscular mais eficiente.</p>
-
-<p>✅ Ajuda a melhorar a disposição física diária.</p>
-
-<p>✅ Pode potencializar o desempenho esportivo.</p>
-
-<p>✅ Desenvolvido para quem busca evolução corporal de forma consistente.</p>
-
-<p>
-O GHDROL se tornou um dos suplementos mais procurados por atletas e praticantes de musculação que desejam maximizar seus resultados sem complicações.
-</p>
-
-<p>
-Quanto mais cedo você começar, mais cedo poderá avaliar os benefícios que o produto pode proporcionar dentro da sua rotina de treinos.
+<p class="info">
+✔ Compra Segura &nbsp;&nbsp;•&nbsp;&nbsp;
+✔ Produto Original &nbsp;&nbsp;•&nbsp;&nbsp;
+✔ Pagamento Protegido
 </p>
 
 </div>
 
-<img
-class="product-image"
-src="https://i.imgur.com/30ZdgRm.png"
-alt="GHDROL">
+<div class="container certificados">
 
-<a
-class="cta-button"
-href="https://ghmuscle.com.br/ghdrol-braip/?pv=prozx3y6&af=afijp7j3m3">
-ACESSAR SITE OFICIAL
-</a>
+<h2>🔒 Compra 100% Segura</h2>
 
-</section>
+<div class="grid">
+
+<div class="card">
+<div class="icone">🔒</div>
+<h3>Site Seguro</h3>
+<p>Seus dados são protegidos com criptografia SSL.</p>
+</div>
+
+<div class="card">
+<div class="icone">✅</div>
+<h3>Produto Original</h3>
+<p>Receba o GHDROL autêntico diretamente do distribuidor oficial.</p>
+</div>
+
+<div class="card">
+<div class="icone">💳</div>
+<h3>Pagamento Protegido</h3>
+<p>Ambiente de pagamento totalmente seguro.</p>
+</div>
+
+<div class="card">
+<div class="icone">🚚</div>
+<h3>Entrega Nacional</h3>
+<p>Envio para todo o Brasil com rastreamento.</p>
+</div>
 
 </div>
+
+</div>
+
+<footer>
+
+<p><strong>AVISO LEGAL</strong></p>
+
+<p>
+Os resultados podem variar de pessoa para pessoa conforme hábitos alimentares,
+rotina de exercícios e características individuais.
+</p>
+
+<p>
+Este produto não substitui alimentação equilibrada nem acompanhamento médico.
+</p>
+
+<p>
+As informações apresentadas nesta página possuem caráter exclusivamente informativo
+e não representam promessa ou garantia de resultados.
+</p>
+
+<p>
+© 2026 - Todos os direitos reservados.
+</p>
+
+</footer>
 
 </body>
 </html>
