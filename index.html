@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<html lang="pt-BR"><head>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -12,12 +11,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <title>GHDROL Oficial</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="preconnect" href="https://i.imgur.com">
 
 <link rel="preload" as="image" href="https://i.imgur.com/2OYvB3V.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;display=swap" rel="stylesheet">
 
 <style>
 
@@ -185,8 +184,7 @@ grid-template-columns:1fr;
 </head>
 
 <body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7C4J542"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7C4J542" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container">
 
 <h1>
@@ -197,17 +195,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 Produto original • Compra protegida • Entrega para todo o Brasil.
 </p>
 
-<img
-src="https://i.imgur.com/2OYvB3V.png"
-alt="GHDROL"
-width="560"
-height="560"
-loading="eager"
-fetchpriority="high"
-decoding="sync">
+<img src="https://i.imgur.com/2OYvB3V.png" alt="GHDROL" width="560" height="560" loading="eager" fetchpriority="high" decoding="sync">
 
-<a class="cta"
-href="https://ev.braip.com/campanhas/cpa/cam44zv86">
+<a class="cta" href="https://ev.braip.com/campanhas/cpa/cam44zv86" data-cta="">
 QUERO MEU GHDROL
 </a>
 
@@ -259,5 +249,25 @@ Os resultados podem variar conforme cada pessoa. As informações desta página 
 
 </footer>
 
-</body>
-</html>
+
+<!-- Pré-sell Tracker (gerado automaticamente) -->
+<script>
+(function () {
+  var pageId = "GHDROL";
+  var API_BASE = "https://fugapresell.lovable.app";
+  function send(path) {
+    var url = API_BASE + "/api/public/" + path;
+    var body = JSON.stringify({ pageId: pageId });
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(url, new Blob([body], { type: "application/json" }));
+      return;
+    }
+    fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: body, keepalive: true }).catch(function () {});
+  }
+  send("visit");
+  document.addEventListener("click", function (event) {
+    var el = event.target.closest("[data-cta], .cta");
+    if (el) send("click");
+  });
+})();
+</script></body></html>
